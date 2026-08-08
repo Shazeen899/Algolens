@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlgoLens - Visualizer Workspace</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="logo"><span class="dot-orange">■</span> AlgoLens <span class="sub-text">/ sorting</span></div>
+
+            <div class="nav-tabs">
+                <button class="nav-tab active">Sorting</button>
+                <button class="nav-tab">Pathfinding</button>
+            </div>
+        </header>
+
+        <div class="workspace-grid">
+
+            <main class="visualizer-canvas card">
+                <div class="card-header">
+                    <h2><span id="algo-title-display">Merge Sort</span> — visualizing array of <span
+                            id="val-size-header">40</span> elements</h2>
+                    <span class="status-badge"><span class="status-dot"></span> <span
+                            id="status-text">idle</span></span>
+                </div>
+
+                <div id="array-container" class="bars-container"></div>
+
+                <div class="metrics-row">
+                    <div class="metric-box"><label>Comparisons:</label> <span id="stat-comparisons">0</span></div>
+                    <div class="metric-box"><label>Swaps:</label> <span id="stat-swaps">0</span></div>
+                    <div class="metric-box"><label>Array size:</label> <span id="stat-size">40</span></div>
+                    <div class="metric-box"><label>Elapsed:</label> <span id="stat-time">0.0s</span></div>
+                </div>
+
+                <div class="controls-row">
+                    <button id="btn-sort" class="btn primary">▶ Run</button>
+                    <button id="btn-pause" class="btn secondary" disabled>⏸ Pause</button>
+                    <button id="btn-step" class="btn secondary" disabled>⏭ Step</button>
+                    <button id="btn-generate" class="btn secondary">🔀 Shuffle</button>
+
+                    <div class="custom-input-group">
+                        <input type="text" id="custom-array-input" placeholder="e.g. 45, 120, 30, 210, 85"
+                            class="custom-input">
+                        <button id="btn-custom" class="btn secondary">Set Array</button>
+                    </div>
+
+                    <div class="slider-group">
+                        <label for="slider-size">Size: <span id="val-size">40</span></label>
+                        <input type="range" id="slider-size" min="10" max="100" value="40">
+                    </div>
+
+                    <div class="slider-group">
+                        <label for="slider-speed">Speed: <span id="val-speed">50</span>ms</label>
+                        <input type="range" id="slider-speed" min="5" max="300" value="50" step="5">
+                    </div>
+                </div>
+
+                <div class="legend-box">
+                    <span>legend — </span>
+                    <span class="legend-item"><span class="dot orange"></span> comparing</span>
+                    <span class="legend-item"><span class="dot red"></span> swapping</span>
+                    <span class="legend-item"><span class="dot green"></span> sorted</span>
+                </div>
+            </main>
+
+            <aside class="code-sidebar card">
+                <h3>ALGORITHM LOGIC</h3>
+                <h4 id="code-title">merge sort</h4>
+
+                <div class="select-wrapper">
+                    <select id="algo-select" class="dropdown">
+                        <option value="bubble">Bubble Sort</option>
+                        <option value="selection">Selection Sort</option>
+                        <option value="insertion">Insertion Sort</option>
+                        <option value="quick">Quick Sort</option>
+                        <option value="merge" selected>Merge Sort</option>
+                    </select>
+                </div>
+
+                <div class="complexity-boxes">
+                    <div class="box"><span class="val" id="time-complexity">O(n log n)</span><span
+                            class="label">time</span></div>
+                    <div class="box"><span class="val" id="space-complexity">O(n)</span><span class="label">space</span>
+                    </div>
+                </div>
+
+                <div class="code-display">
+                    <pre><code id="code-view"></code></pre>
+                </div>
+            </aside>
+        </div>
+    </div>
+</body>
+
+</html>
